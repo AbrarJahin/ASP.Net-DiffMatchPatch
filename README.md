@@ -5,13 +5,14 @@ It is REST API for Google-DiffMatchPatch
 API-
 ----
 
-URL -
+* URL-
 
-  ./Home/DiffMatchPatch
+    ./Home/DiffMatchPatch
 
-Param-
+* Param-
 
-  firstString
-  secondString
+   `firstString` - `string`
 
-Request Type- POST
+   `secondString` - `string`
+
+Request Type- `POST`

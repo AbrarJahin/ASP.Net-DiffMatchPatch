@@ -1,5 +1,3 @@
-using System;
-
 namespace DiffMatchPatchHost.Models
 {
     public class ErrorViewModel

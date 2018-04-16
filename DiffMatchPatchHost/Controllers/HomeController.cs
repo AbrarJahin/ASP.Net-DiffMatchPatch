@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DiffMatchPatchHost.Models;
+using AbrarJahin.DiffMatch.Patch;
+using System.Collections.Generic;
+using System;
 
 namespace DiffMatchPatchHost.Controllers
 {
@@ -26,11 +29,24 @@ namespace DiffMatchPatchHost.Controllers
         }
 
         [HttpPost]
-        public JsonResult DiffMatchPatch(string firstString, string secondString)
+        public Object DiffMatchPatch(string firstString, string secondString)
         {
-            ViewData["Message"] = firstString + " " + secondString;
+            //Garbage Collector Clearification
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
 
-            return Json(ViewData["Message"]);
+            DateTime ms_start = DateTime.Now;
+            DiffMatchPatch dmp = new DiffMatchPatch();
+            dmp.DiffTimeout = 0;
+
+            // Execute one reverse diff as a warmup.
+            List<Diff> diff = dmp.DiffMain(firstString, secondString);
+
+            return new {
+                CalculationTime = DateTime.Now - ms_start,
+                AllDifferences = diff,
+                PrettyHtml = dmp.DiffPrettyHtml(diff)
+            };
         }
 
         public IActionResult Error()
