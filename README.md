@@ -16,3 +16,9 @@ API-
    `secondString` - `string`
 
 Request Type- `POST`
+
+Operation Code detail-
+
+	DELETE = 0
+	INSERT = 1
+	EQUAL = 2
