@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using DiffMatchPatchHost.Models;
 
@@ -27,6 +23,14 @@ namespace DiffMatchPatchHost.Controllers
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult DiffMatchPatch(string firstString, string secondString)
+        {
+            ViewData["Message"] = firstString + " " + secondString;
+
+            return Json(ViewData["Message"]);
         }
 
         public IActionResult Error()
