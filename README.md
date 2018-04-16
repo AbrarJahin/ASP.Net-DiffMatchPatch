@@ -28,4 +28,6 @@ Build Command for CMD-
 
 	dotnet build --configuration Release --runtime ubuntu.16.04-x64
 
-[More can be found in here](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build?tabs=netcore2x "dotnet-build")
+More can be found in [here](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build?tabs=netcore2x "Build Project").
+
+Hosting on Linux with NGinX can be found in [here](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-2.1&tabs=aspnetcore2x "Deploy in Linux with NGinX").
