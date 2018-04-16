@@ -29,21 +29,21 @@ namespace DiffMatchPatchHost.Controllers
         }
 
         [HttpPost]
-        public Object DiffMatchPatch(string firstString, string secondString)
+        public Object DiffMatchPatch(string firstString, string secondString, float timeOut = 0)
         {
             //Garbage Collector Clearification
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
-            DateTime ms_start = DateTime.Now;
+            DateTime timeStart = DateTime.Now;
             DiffMatchPatch dmp = new DiffMatchPatch();
-            dmp.DiffTimeout = 0;
+            dmp.DiffTimeout = timeOut;
 
             // Execute one reverse diff as a warmup.
             List<Diff> diff = dmp.DiffMain(firstString, secondString);
 
             return new {
-                CalculationTime = DateTime.Now - ms_start,
+                CalculationTime = (DateTime.Now - timeStart),
                 AllDifferences = diff,
                 PrettyHtml = dmp.DiffPrettyHtml(diff)
             };

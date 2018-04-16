@@ -7,13 +7,15 @@ API-
 
 * URL-
 
-    ./Home/DiffMatchPatch
+	./Home/DiffMatchPatch
 
 * Param-
 
-   `firstString` - `string`
+   `FirstString` - `string`
 
-   `secondString` - `string`
+   `SecondString` - `string`
+
+   `TimeOut` - `float` (in seconds) (optional) - default (0 / infinite time)
 
 Request Type- `POST`
 
